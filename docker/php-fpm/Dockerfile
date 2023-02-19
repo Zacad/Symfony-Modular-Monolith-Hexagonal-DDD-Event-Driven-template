@@ -32,6 +32,6 @@ RUN echo n | npm install -g --silent sass-loader@^13.0.0 sass --save-dev
 RUN  useradd admin && echo "admin:admin" | chpasswd && adduser admin sudo
 USER admin
 
-CMD composer i -o ; wait-for-it db:3307  ; create_test_db; php bin/console doctrine:migrations:migrate ;  php-fpm
+CMD composer i -o ; wait-for-it db:3307  ; create_test_db; php bin/console doctrine:migrations:migrate ; php bin/console doctrine:migrations:migrate --env=test ;  php-fpm
 
 EXPOSE 9000

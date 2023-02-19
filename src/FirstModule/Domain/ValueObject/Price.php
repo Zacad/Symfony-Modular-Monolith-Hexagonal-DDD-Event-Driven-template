@@ -19,6 +19,11 @@ class Price
         return new self(Money::fromFloatAmount($priceAmount, $priceCurrency));
     }
 
+    public static function fromMoney(Money $price)
+    {
+        return new self($price);
+    }
+
     public function isEqualTo(Price $price): bool
     {
         return $this->price->isEqualTo($price->price);

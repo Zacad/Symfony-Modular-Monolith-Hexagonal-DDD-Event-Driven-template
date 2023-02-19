@@ -20,4 +20,15 @@ class Money
     {
         return $this->pennyAmount === $money->pennyAmount && $this->currency === $money->currency;
     }
+
+    public function currency(): string
+    {
+        return $this->currency;
+    }
+
+    public function pennyAmount(): int
+    {
+        return $this->pennyAmount;
+    }
+
 }

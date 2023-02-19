@@ -14,7 +14,7 @@ doctrine:
             FirstModule:
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/FirstModule/Domain/Entity'
-                prefix: 'App\FirstModule\Entity'
+                prefix: 'App\FirstModule\Domain\Entity'
                 alias: FirstModule
             SecondModule:
                 is_bundle: false
@@ -22,11 +22,6 @@ doctrine:
                 prefix: 'App\SecondModule\Domain\Entity'
                 alias: SecondModule
 
-when@test:
-    doctrine:
-        dbal:
-            # "TEST_TOKEN" is typically set by ParaTest
-            dbname_suffix: '_test%env(default::TEST_TOKEN)%'
 
 when@prod:
     doctrine:
