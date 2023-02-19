@@ -1,6 +1,6 @@
 # Intro
 
-This repository contains example implementation of Achitecture patterns such as:
+This repository contains example implementation within Symfony Framework of Achitecture patterns such as:
 
 - Modular monolith
 - Hexagonal architecture
@@ -9,8 +9,6 @@ This repository contains example implementation of Achitecture patterns such as:
 - DDD
 - CQRS
 - Event Driven Architecture
-
-within Symfony Framework.
 
 You can find here, how to implement those patterns in Symfony and how to use them in real life projects.
 
