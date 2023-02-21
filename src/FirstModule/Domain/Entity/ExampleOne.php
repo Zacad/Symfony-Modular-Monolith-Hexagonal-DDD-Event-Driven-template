@@ -11,28 +11,42 @@ use Ramsey\Uuid\UuidInterface;
 #[Entity]
 class ExampleOne
 {
+    #[Id]
+    #[Column(type: 'uuid')]
+    private UuidInterface $id;
+    #[Column(type: 'string')]
+    private string $name;
     #[Column(type: 'integer')]
-    private string $priceAmount;
-        #[Column(type: 'string')]
-        private string $priceCurrency;
+    private int $priceAmount;
+    #[Column(type: 'string')]
+    private string $priceCurrency;
 
     public function __construct(
-        #[Id]
-        #[Column(type: 'uuid')]
-        private UuidInterface $id,
-        #[Column(type: 'string')]
-        private string $name,
+        UuidInterface $id,
+        string $name,
         Price $price,
 
-    )
-    {
-        $this->priceAmount = $price->pennyAmount();
-        $this->priceCurrency = $price->currency();
+    ) {
+        $this->id = $id;
+        $this->name = $name;
+        $this->priceAmount = $price->getPennyAmount();
+        $this->priceCurrency = $price->getCurrency();
     }
 
-    public function price(): Price
+
+    public function getPrice(): Price
     {
         return Price::fromPennyAmount($this->priceAmount, $this->priceCurrency);
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 
 }

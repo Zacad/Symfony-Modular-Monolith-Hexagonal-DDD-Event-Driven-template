@@ -7,7 +7,6 @@ use App\Common\ValueObject\Money;
 use App\FirstModule\Application\Command\CreateExampleOneCommand;
 use App\FirstModule\Domain\Entity\ExampleOne;
 use App\FirstModule\Domain\Repository\ExampleOneRepositoryInterface;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

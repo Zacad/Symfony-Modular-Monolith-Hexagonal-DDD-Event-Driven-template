@@ -7,16 +7,16 @@ use App\Common\ValueObject\Money;
 class Price
 {
     public function __construct(
-       private Money $price,
-    ){
-        if ($price->pennyAmount() < 0) {
+        private Money $price,
+    ) {
+        if ($price->getPennyAmount() < 0) {
             throw new \InvalidArgumentException('Price cannot be negative');
         }
     }
 
     public static function fromPennyAmount(int $priceAmount, string $priceCurrency)
     {
-        return new self(Money::fromFloatAmount($priceAmount, $priceCurrency));
+        return new self(Money::fromPennyAmount($priceAmount, $priceCurrency));
     }
 
     public static function fromMoney(Money $price)
@@ -29,18 +29,23 @@ class Price
         return $this->price->isEqualTo($price->price);
     }
 
-    public function price(): Money
+    public function getPrice(): Money
     {
         return $this->price;
     }
 
-    public function pennyAmount()
+    public function getPennyAmount(): int
     {
-        return $this->price->pennyAmount();
+        return $this->price->getPennyAmount();
     }
 
-    public function currency()
+    public function getCurrency(): string
     {
-        return $this->price->currency();
+        return $this->price->getCurrency();
+    }
+
+    public function toMoney()
+    {
+        return $this->price;
     }
 }
