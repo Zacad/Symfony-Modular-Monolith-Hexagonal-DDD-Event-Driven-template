@@ -18,9 +18,9 @@ doctrine:
                 alias: ProductModule
             SecondModule:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/SecondModule/Domain/Entity'
-                prefix: 'App\SecondModule\Domain\Entity'
-                alias: SecondModule
+                dir: '%kernel.project_dir%/src/PricingModule/Domain/Entity'
+                prefix: 'App\PricingModule\Domain\Entity'
+                alias: PricingModule
 
 
 when@prod:

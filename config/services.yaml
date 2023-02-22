@@ -19,7 +19,7 @@ services:
         exclude:
             - '../src/DependencyInjection/'
             - '../src/ProductModule/Domain/Entity/'
-            - '../src/SecondModule/Domain/Entity/'
+            - '../src/PricingModule/Domain/Entity/'
             - '../src/Kernel.php'
 
     # add more service definitions when explicit configuration is needed
