@@ -3,12 +3,12 @@
 namespace App\ProductModule\Infrastructure\Repository;
 
 use App\ProductModule\Domain\Entity\Product;
-use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\Repository\ProductRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Ramsey\Uuid\UuidInterface;
 
-class ExampleOneRepository extends ServiceEntityRepository implements ExampleOneRepositoryInterface
+class ProductRepository extends ServiceEntityRepository implements ProductRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {

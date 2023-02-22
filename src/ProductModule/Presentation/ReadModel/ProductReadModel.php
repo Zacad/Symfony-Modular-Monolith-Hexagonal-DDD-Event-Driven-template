@@ -5,7 +5,7 @@ namespace App\ProductModule\Presentation\ReadModel;
 use App\Common\Bus\Query\QueryBusInterface;
 use App\Common\ValueObject\Money;
 use App\PricingModule\Presentation\Query\FindPricesForProductQuery;
-use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\Repository\ProductRepositoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
 class ProductReadModel
@@ -13,7 +13,7 @@ class ProductReadModel
     private array $productViews = [];
 
     public function __construct(
-        private readonly ExampleOneRepositoryInterface $exampleOneRepository,
+        private readonly ProductRepositoryInterface $exampleOneRepository,
         private readonly QueryBusInterface $queryBus
     ) {
     }

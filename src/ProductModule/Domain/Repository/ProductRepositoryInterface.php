@@ -5,7 +5,7 @@ namespace App\ProductModule\Domain\Repository;
 use App\ProductModule\Domain\Entity\Product;
 use Ramsey\Uuid\UuidInterface;
 
-interface ExampleOneRepositoryInterface
+interface ProductRepositoryInterface
 {
     public function save(Product $exampleOne): void;
 

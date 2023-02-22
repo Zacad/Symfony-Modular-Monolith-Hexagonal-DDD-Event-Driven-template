@@ -6,7 +6,7 @@ use App\Common\Bus\Event\EventBusInterface;
 use App\ProductModule\Application\Command\CreateExampleOneCommand;
 use App\ProductModule\Domain\Entity\Product;
 use App\ProductModule\Domain\Event\ProductCreatedEvent;
-use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\Repository\ProductRepositoryInterface;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
@@ -14,7 +14,7 @@ use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 class CreateExampleOneCommandHandler
 {
     public function __construct(
-        private readonly ExampleOneRepositoryInterface $exampleOneRepository,
+        private readonly ProductRepositoryInterface $exampleOneRepository,
         private readonly EventBusInterface $eventBus,
     ) {
     }
