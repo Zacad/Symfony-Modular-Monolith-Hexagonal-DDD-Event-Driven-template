@@ -29,7 +29,6 @@ class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\Ker
         $command = new CreateExampleOneCommand(
             id: \Ramsey\Uuid\Uuid::uuid4(),
             name: 'Example one',
-            price: \App\Common\ValueObject\Money::fromFloatAmount(100.00, 'EUR'),
         );
 
         $commandBus = static::getContainer()->get('test.'.CommandBusInterface::class);
@@ -46,7 +45,5 @@ class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\Ker
         $view = json_decode($view, true);
         $this->assertSame($command->id->toString(), $view['id']);
         $this->assertSame($command->name, $view['name']);
-        $this->assertSame($command->price->getAmount(), $view['price']['price']['amount']);
-        $this->assertSame($command->price->getCurrency(), $view['price']['currency']);
     }
 }

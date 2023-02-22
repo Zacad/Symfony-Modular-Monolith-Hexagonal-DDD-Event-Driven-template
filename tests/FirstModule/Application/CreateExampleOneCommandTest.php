@@ -3,9 +3,8 @@
 namespace App\Tests\ProductModule\Application;
 
 use App\Common\Bus\Command\CommandBusInterface;
-use App\Common\ValueObject\Money;
 use App\ProductModule\Application\Command\CreateExampleOneCommand;
-use App\ProductModule\Domain\Entity\ExampleOne;
+use App\ProductModule\Domain\Entity\Product;
 use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -27,7 +26,6 @@ class CreateExampleOneCommandTest extends KernelTestCase
         $command = new CreateExampleOneCommand(
             id: Uuid::uuid4(),
             name: 'Example two',
-            price: Money::fromFloatAmount(100.00, 'EUR'),
         );
 
         $commandBus = static::getContainer()->get('test.'.CommandBusInterface::class);
@@ -41,6 +39,6 @@ class CreateExampleOneCommandTest extends KernelTestCase
 
         // then
 
-        $this->assertInstanceOf(ExampleOne::class, $exampleOne);
+        $this->assertInstanceOf(Product::class, $exampleOne);
     }
 }

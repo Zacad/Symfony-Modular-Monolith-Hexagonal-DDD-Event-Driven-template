@@ -2,7 +2,7 @@
 
 namespace App\ProductModule\Infrastructure\Repository;
 
-use App\ProductModule\Domain\Entity\ExampleOne;
+use App\ProductModule\Domain\Entity\Product;
 use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -12,16 +12,16 @@ class ExampleOneRepository extends ServiceEntityRepository implements ExampleOne
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ExampleOne::class);
+        parent::__construct($registry, Product::class);
     }
 
-    public function save(ExampleOne $exampleOne): void
+    public function save(Product $exampleOne): void
     {
         $this->getEntityManager()->persist($exampleOne);
         $this->getEntityManager()->flush();
     }
 
-    public function findById(UuidInterface $id): ?ExampleOne
+    public function findById(UuidInterface $id): ?Product
     {
         $qb = $this->createQueryBuilder('e');
         $qb->andWhere($qb->expr()->eq('e.id', ':id'))
