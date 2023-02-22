@@ -30,6 +30,18 @@ In the Domain layer we have only business logic, which is independent from techn
 We achieve this by using interfaces and dependency inversion principle.
 For example, we have interface for repository, which is implemented by infrastructure layer.
 
+To config symfony to see entities in domain directory, we need to add configuration to doctrine.yaml file:
+
+    orm:
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Module/Domain/Entity'
+                prefix: 'App\Module\Domain\Entity'
+                alias: Module
+
 ### CQRS
 
 Commands and Commands handlers are located within Application directory.
