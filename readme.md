@@ -12,6 +12,13 @@ This repository contains example implementation within Symfony Framework of Achi
 
 You can find here, how to implement those patterns in Symfony and how to use them in real life projects.
 
+### Running project
+
+Project contains simple docker configuration. To run project you need to have docker and docker-compose installed and
+just run command in shell:
+
+    docker-compose up -d
+
 ### Modules
 
 On the highest level we have independent modules. By default modules represents bounded contexts.
