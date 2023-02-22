@@ -2,9 +2,8 @@
 
 namespace App\ProductModule\Presentation\ReadModel;
 
-use App\Common\Bus\Query\QueryBusInterface;
 use App\Common\ValueObject\Money;
-use App\PricingModule\Presentation\Query\FindPricesForProductQuery;
+use App\ProductModule\Domain\Plugin\PricingPluginInterface;
 use App\ProductModule\Domain\Repository\ProductRepositoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
@@ -14,7 +13,7 @@ class ProductReadModel
 
     public function __construct(
         private readonly ProductRepositoryInterface $exampleOneRepository,
-        private readonly QueryBusInterface $queryBus
+        private readonly PricingPluginInterface $pricingPlugin,
     ) {
     }
 
@@ -43,7 +42,7 @@ class ProductReadModel
             'prices' => []
         ];
 
-        $prices = $this->queryBus->query(new FindPricesForProductQuery($product->getSku()));
+        $prices = $this->pricingPlugin->findPricesForProduct($product->getSku());
 
         foreach ($prices as $price) {
             $this->productViews[$product->getSku()]['prices'][$price->priceList] = $price->price;
