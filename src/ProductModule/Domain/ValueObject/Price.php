@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FirstModule\Domain\ValueObject;
+namespace App\ProductModule\Domain\ValueObject;
 
 use App\Common\ValueObject\Money;
 

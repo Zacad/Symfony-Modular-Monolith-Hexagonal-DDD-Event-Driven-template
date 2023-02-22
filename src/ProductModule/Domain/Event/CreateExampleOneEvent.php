@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FirstModule\Domain\Event;
+namespace App\ProductModule\Domain\Event;
 
 use App\Common\Bus\Event\AbstractEvent;
 use App\Common\ValueObject\Money;

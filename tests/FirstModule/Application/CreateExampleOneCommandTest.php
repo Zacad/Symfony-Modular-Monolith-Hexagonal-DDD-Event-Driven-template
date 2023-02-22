@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Tests\FirstModule\Application;
+namespace App\Tests\ProductModule\Application;
 
 use App\Common\Bus\Command\CommandBusInterface;
 use App\Common\ValueObject\Money;
-use App\FirstModule\Application\Command\CreateExampleOneCommand;
-use App\FirstModule\Domain\Entity\ExampleOne;
-use App\FirstModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Application\Command\CreateExampleOneCommand;
+use App\ProductModule\Domain\Entity\ExampleOne;
+use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

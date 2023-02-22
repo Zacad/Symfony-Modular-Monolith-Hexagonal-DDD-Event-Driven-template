@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\FirstModule\Domain\ValueObject;
+namespace App\Tests\ProductModule\Domain\ValueObject;
 
-use App\FirstModule\Domain\ValueObject\Price;
+use App\ProductModule\Domain\ValueObject\Price;
 use PHPUnit\Framework\TestCase;
 
 class PriceTest extends TestCase

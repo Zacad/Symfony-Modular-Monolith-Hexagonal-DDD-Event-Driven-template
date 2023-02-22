@@ -1,8 +1,8 @@
 <?php
 
-namespace App\FirstModule\ReadModel;
+namespace App\ProductModule\ReadModel;
 
-use App\FirstModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use League\Flysystem\FilesystemOperator;
 use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Serializer\SerializerInterface;

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\FirstModule\Infrastructure\EventHandler;
+namespace App\ProductModule\Infrastructure\EventHandler;
 
-use App\FirstModule\Domain\Event\CreateExampleOneEvent;
-use App\FirstModule\ReadModel\ExampleOneReadModel;
+use App\ProductModule\Domain\Event\CreateExampleOneEvent;
+use App\ProductModule\ReadModel\ExampleOneReadModel;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

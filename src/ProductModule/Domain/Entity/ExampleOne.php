@@ -1,8 +1,8 @@
 <?php
 
-namespace App\FirstModule\Domain\Entity;
+namespace App\ProductModule\Domain\Entity;
 
-use App\FirstModule\Domain\ValueObject\Price;
+use App\ProductModule\Domain\ValueObject\Price;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping\Id;

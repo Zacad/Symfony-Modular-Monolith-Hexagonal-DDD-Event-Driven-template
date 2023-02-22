@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FirstModule\Application\Command;
+namespace App\ProductModule\Application\Command;
 
 use App\Common\Bus\Command\AbstractCommand;
 use App\Common\ValueObject\Money;

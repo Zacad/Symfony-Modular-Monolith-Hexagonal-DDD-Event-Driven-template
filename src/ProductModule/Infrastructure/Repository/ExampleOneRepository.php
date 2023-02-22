@@ -1,9 +1,9 @@
 <?php
 
-namespace App\FirstModule\Infrastructure\Repository;
+namespace App\ProductModule\Infrastructure\Repository;
 
-use App\FirstModule\Domain\Entity\ExampleOne;
-use App\FirstModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\Entity\ExampleOne;
+use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Ramsey\Uuid\UuidInterface;

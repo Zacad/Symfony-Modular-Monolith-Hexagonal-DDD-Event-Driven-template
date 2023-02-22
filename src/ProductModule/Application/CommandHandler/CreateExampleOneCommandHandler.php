@@ -1,13 +1,13 @@
 <?php
 
-namespace App\FirstModule\Application\CommandHandler;
+namespace App\ProductModule\Application\CommandHandler;
 
 use App\Common\Bus\Event\EventBusInterface;
-use App\FirstModule\Application\Command\CreateExampleOneCommand;
-use App\FirstModule\Domain\Entity\ExampleOne;
-use App\FirstModule\Domain\Event\CreateExampleOneEvent;
-use App\FirstModule\Domain\Repository\ExampleOneRepositoryInterface;
-use App\FirstModule\Domain\ValueObject\Price;
+use App\ProductModule\Application\Command\CreateExampleOneCommand;
+use App\ProductModule\Domain\Entity\ExampleOne;
+use App\ProductModule\Domain\Event\CreateExampleOneEvent;
+use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
+use App\ProductModule\Domain\ValueObject\Price;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 

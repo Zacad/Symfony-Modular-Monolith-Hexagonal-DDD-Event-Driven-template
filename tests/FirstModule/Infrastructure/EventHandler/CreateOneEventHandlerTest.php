@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\FirstModule\Infrastructure\EventHandler;
+namespace App\Tests\ProductModule\Infrastructure\EventHandler;
 
 use App\Common\Bus\Command\CommandBusInterface;
-use App\FirstModule\Application\Command\CreateExampleOneCommand;
+use App\ProductModule\Application\Command\CreateExampleOneCommand;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\KernelTestCase

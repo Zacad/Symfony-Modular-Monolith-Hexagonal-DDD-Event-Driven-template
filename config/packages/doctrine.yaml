@@ -11,11 +11,11 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            FirstModule:
+            ProductModule:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/FirstModule/Domain/Entity'
-                prefix: 'App\FirstModule\Domain\Entity'
-                alias: FirstModule
+                dir: '%kernel.project_dir%/src/ProductModule/Domain/Entity'
+                prefix: 'App\ProductModule\Domain\Entity'
+                alias: ProductModule
             SecondModule:
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/SecondModule/Domain/Entity'
