@@ -3,7 +3,7 @@
 namespace App\ProductModule\Infrastructure\EventHandler;
 
 use App\ProductModule\Domain\Event\ProductCreatedEvent;
-use App\ProductModule\ReadModel\ProductReadModel;
+use App\ProductModule\Presentation\ReadModel\ProductReadModel;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]

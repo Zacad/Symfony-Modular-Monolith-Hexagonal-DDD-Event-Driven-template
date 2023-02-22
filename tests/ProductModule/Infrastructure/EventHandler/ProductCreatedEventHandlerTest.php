@@ -4,7 +4,7 @@ namespace App\Tests\ProductModule\Infrastructure\EventHandler;
 
 use App\Common\Bus\Command\CommandBusInterface;
 use App\ProductModule\Application\Command\CreateExampleOneCommand;
-use App\ProductModule\ReadModel\ProductReadModel;
+use App\ProductModule\Presentation\ReadModel\ProductReadModel;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ProductCreatedEventHandlerTest extends KernelTestCase

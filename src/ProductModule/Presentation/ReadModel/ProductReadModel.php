@@ -1,6 +1,6 @@
 <?php
 
-namespace App\ProductModule\ReadModel;
+namespace App\ProductModule\Presentation\ReadModel;
 
 use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Ramsey\Uuid\UuidInterface;
