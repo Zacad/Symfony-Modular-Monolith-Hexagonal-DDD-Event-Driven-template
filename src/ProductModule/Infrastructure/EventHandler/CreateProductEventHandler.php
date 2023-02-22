@@ -7,7 +7,7 @@ use App\ProductModule\Presentation\ReadModel\ProductReadModel;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
 
 #[AsMessageHandler]
-class CreateExampleOneEventHandler
+class CreateProductEventHandler
 {
     public function __construct(
         private readonly ProductReadModel $exampleOneReadModel,

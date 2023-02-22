@@ -2,6 +2,9 @@
 
 namespace App\ProductModule\Presentation\ReadModel;
 
+use App\Common\Bus\Query\QueryBusInterface;
+use App\Common\ValueObject\Money;
+use App\PricingModule\Presentation\Query\FindPricesForProductQuery;
 use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
@@ -11,6 +14,7 @@ class ProductReadModel
 
     public function __construct(
         private readonly ExampleOneRepositoryInterface $exampleOneRepository,
+        private readonly QueryBusInterface $queryBus
     ) {
     }
 
@@ -39,13 +43,16 @@ class ProductReadModel
             'prices' => []
         ];
 
+        $prices = $this->queryBus->query(new FindPricesForProductQuery($product->getSku()));
 
-//        $json = $this->serializer->serialize($exampleOne, 'json');
-//        $this->defaultStorage->write('example-one/'.$id->toString().'.json', $json);
+        foreach ($prices as $price) {
+            $this->productViews[$product->getSku()]['prices'][$price->priceList] = $price->price;
+        }
     }
 
-    public function updatePrice(string $sku, \App\Common\ValueObject\Money $price, string $priceList)
+    public function updatePrice(string $sku, Money $price, string $priceList)
     {
+        $this->productViews[$sku]['prices'][$priceList] = $price;
     }
 
     public function getProductView(string $sku): array

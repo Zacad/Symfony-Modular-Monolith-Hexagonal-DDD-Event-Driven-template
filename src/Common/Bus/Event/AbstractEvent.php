@@ -2,7 +2,7 @@
 
 namespace App\Common\Bus\Event;
 
-class AbstractEvent
+abstract class AbstractEvent
 {
 
 }

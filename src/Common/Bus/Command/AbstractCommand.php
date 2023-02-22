@@ -2,7 +2,7 @@
 
 namespace App\Common\Bus\Command;
 
-class AbstractCommand
+abstract class AbstractCommand
 {
 
 }
