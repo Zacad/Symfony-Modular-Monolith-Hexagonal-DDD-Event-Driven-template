@@ -48,7 +48,9 @@ Commands and Commands handlers are located within Application directory.
 Queries and Query Handlers are located within ReadModel directory.
 
 They use bus pattern to dispatch commands and queries.
-Technical implementation of buses is based on Symfony Messenger component.
+Technical implementation of buses is based on Symfony Messenger component and is located inside Common direcotry.
+By default all buses are synchronous, but we can achieve asynchronous processing just by changing messenger
+configuration.
 
 ### Event Driven Architecture
 
