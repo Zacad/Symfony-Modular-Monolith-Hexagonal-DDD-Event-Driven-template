@@ -4,9 +4,10 @@ namespace App\Tests\ProductModule\Infrastructure\EventHandler;
 
 use App\Common\Bus\Command\CommandBusInterface;
 use App\ProductModule\Application\Command\CreateExampleOneCommand;
-use Symfony\Component\Serializer\SerializerInterface;
+use App\ProductModule\ReadModel\ProductReadModel;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\KernelTestCase
+class ProductCreatedEventHandlerTest extends KernelTestCase
 {
     public function setUp(): void
     {
@@ -15,12 +16,6 @@ class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\Ker
                 'environment' => 'test'
             ]
         );
-
-        /**
-         * @var \League\Flysystem\FilesystemOperator $flysystem
-         */
-        $flysystem = static::getContainer()->get('default.storage');
-        $flysystem->deleteDirectory('example-one');
     }
 
     public function testItUpdateReadModel()
@@ -28,22 +23,21 @@ class CreateOneEventHandlerTest extends \Symfony\Bundle\FrameworkBundle\Test\Ker
         // given
         $command = new CreateExampleOneCommand(
             id: \Ramsey\Uuid\Uuid::uuid4(),
+            sku: '123',
             name: 'Example one',
         );
 
         $commandBus = static::getContainer()->get('test.'.CommandBusInterface::class);
-        $flysystem = static::getContainer()->get('default.storage');
-        $serializer = static::getContainer()->get(SerializerInterface::class);
+        $productReadModel = static::getContainer()->get(ProductReadModel::class);
 
         // when
         $commandBus->execute($command);
 
-        $view = $flysystem->read('example-one/'.$command->id->toString().'.json');
-
+        $view = $productReadModel->getProductView($command->sku);
         // then
 
-        $view = json_decode($view, true);
-        $this->assertSame($command->id->toString(), $view['id']);
+        $this->assertSame($command->id->toString(), $view['id']->toString());
         $this->assertSame($command->name, $view['name']);
+        $this->assertSame($command->sku, $view['sku']);
     }
 }

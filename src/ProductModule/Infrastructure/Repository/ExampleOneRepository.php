@@ -29,4 +29,11 @@ class ExampleOneRepository extends ServiceEntityRepository implements ExampleOne
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    public function findAll(): iterable
+    {
+        $qb = $this->createQueryBuilder('e');
+
+        return $qb->getQuery()->getResult();
+    }
 }

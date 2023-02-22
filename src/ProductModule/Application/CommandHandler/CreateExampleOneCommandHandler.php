@@ -21,18 +21,20 @@ class CreateExampleOneCommandHandler
 
     public function __invoke(CreateExampleOneCommand $command): void
     {
-        $exampleOne = new Product(
+        $product = new Product(
             $command->id,
+            $command->sku,
             $command->name,
         );
 
         try {
-            $this->exampleOneRepository->save($exampleOne);
+            $this->exampleOneRepository->save($product);
 
             $this->eventBus->dispatch(
                 new ProductCreatedEvent(
-                    $exampleOne->getId(),
-                    $exampleOne->getName(),
+                    $product->getId(),
+                    $product->getSku(),
+                    $product->getName(),
                 ),
             );
         } catch (UniqueConstraintViolationException $e) {

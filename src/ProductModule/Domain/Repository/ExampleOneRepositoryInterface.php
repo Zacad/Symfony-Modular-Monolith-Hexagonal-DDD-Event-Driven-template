@@ -10,4 +10,6 @@ interface ExampleOneRepositoryInterface
     public function save(Product $exampleOne): void;
 
     public function findById(UuidInterface $id): ?Product;
+
+    public function findAll(): iterable;
 }

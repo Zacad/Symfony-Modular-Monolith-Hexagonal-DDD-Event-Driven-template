@@ -25,6 +25,7 @@ class CreateExampleOneCommandTest extends KernelTestCase
         // given
         $command = new CreateExampleOneCommand(
             id: Uuid::uuid4(),
+            sku: '123',
             name: 'Example two',
         );
 
@@ -35,10 +36,10 @@ class CreateExampleOneCommandTest extends KernelTestCase
 
         $commandBus->execute($command);
 
-        $exampleOne = $exampleOneRepository->findById($command->id);
+        $product = $exampleOneRepository->findById($command->id);
 
         // then
 
-        $this->assertInstanceOf(Product::class, $exampleOne);
+        $this->assertInstanceOf(Product::class, $product);
     }
 }

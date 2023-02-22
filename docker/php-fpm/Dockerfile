@@ -9,7 +9,7 @@ COPY create_test_db.sh /usr/bin/create_test_db
 RUN chmod +x /usr/bin/create_test_db
 
 
-RUN apt-get update && \
+RUN apt-get createView && \
     apt-get install -y --no-install-recommends libssl-dev zlib1g-dev curl git unzip netcat libxml2-dev libpq-dev libzip-dev mc sudo default-mysql-client sendmail && \
     pecl install apcu && \
     docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable pdo_mysql && \

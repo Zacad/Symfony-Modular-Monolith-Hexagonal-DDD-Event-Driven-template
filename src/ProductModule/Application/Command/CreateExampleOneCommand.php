@@ -9,6 +9,7 @@ class CreateExampleOneCommand extends AbstractCommand
 {
     public function __construct(
         public readonly UuidInterface $id,
+        public readonly string $sku,
         public readonly string $name,
     ) {
     }

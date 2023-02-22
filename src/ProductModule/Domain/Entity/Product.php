@@ -13,15 +13,20 @@ class Product
     #[Id]
     #[Column(type: 'uuid')]
     private UuidInterface $id;
-    #[Column(type: 'string')]
+
+    #[Column(type: 'string', unique: true, nullable: false)]
+    private string $sku;
+
+    #[Column(type: 'string', nullable: false)]
     private string $name;
 
-    #[Column(type: 'integer')]
     public function __construct(
         UuidInterface $id,
+        string $sku,
         string $name,
     ) {
         $this->id = $id;
+        $this->sku = $sku;
         $this->name = $name;
     }
 
@@ -33,6 +38,11 @@ class Product
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getSku()
+    {
+        return $this->sku;
     }
 
 }
