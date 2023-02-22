@@ -55,7 +55,7 @@ class Price
     /**
      * @return Money
      */
-    public function getPriceAmount(): Money
+    public function getPrice(): Money
     {
         return Money::fromPennyAmount($this->priceAmount, $this->priceCurrency);
     }
