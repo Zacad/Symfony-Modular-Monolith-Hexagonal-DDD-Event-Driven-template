@@ -5,7 +5,7 @@ namespace App\ProductModule\Application\CommandHandler;
 use App\Common\Bus\Event\EventBusInterface;
 use App\ProductModule\Application\Command\CreateExampleOneCommand;
 use App\ProductModule\Domain\Entity\Product;
-use App\ProductModule\Domain\Event\CreateExampleOneEvent;
+use App\ProductModule\Domain\Event\ProductCreatedEvent;
 use App\ProductModule\Domain\Repository\ExampleOneRepositoryInterface;
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use Symfony\Component\Messenger\Attribute\AsMessageHandler;
@@ -30,7 +30,7 @@ class CreateExampleOneCommandHandler
             $this->exampleOneRepository->save($exampleOne);
 
             $this->eventBus->dispatch(
-                new CreateExampleOneEvent(
+                new ProductCreatedEvent(
                     $exampleOne->getId(),
                     $exampleOne->getName(),
                 ),
